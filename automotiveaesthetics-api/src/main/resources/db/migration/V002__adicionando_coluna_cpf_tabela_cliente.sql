@@ -1,0 +1,5 @@
+ALTER TABLE tb_cliente ADD COLUMN cpf VARCHAR(20) NOT NULL;
+
+
+
+
