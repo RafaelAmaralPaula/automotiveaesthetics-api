@@ -47,13 +47,9 @@ public class ClienteController {
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Cliente> buscarPeloCodigo(@PathVariable Integer codigo) {
 
-		Optional<Cliente> clienteEncontrado = clienteRepository.findById(codigo);
+		Cliente clienteEncontrado = clienteService.buscarPeloCodigo(codigo);
 
-		if (!clienteEncontrado.isPresent()) {
-			return ResponseEntity.notFound().build();
-		}
-
-		return ResponseEntity.ok(clienteEncontrado.get());
+		return ResponseEntity.ok(clienteEncontrado);
 	}
 
 	@PostMapping
